@@ -24,7 +24,7 @@ module Refinery
       def move_to_top
         self.class.transaction do
           self.position = 1
-          self.class.where("position >= ?", self.position).each do |testimonial|
+          self.class.where("id != ? AND position >= ?", self.id, self.position).each do |testimonial|
             testimonial.position += 1
             testimonial.save
           end
