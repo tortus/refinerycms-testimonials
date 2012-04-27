@@ -1,0 +1,68 @@
+<%= form_for [refinery, :testimonials_admin, @testimonial] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @testimonial,
+              :include_object_name => true %>
+
+  
+  <div class='field'>
+    <%= f.label :title -%>
+    <%= f.text_field :title, :class => 'larger widest'  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :name -%>
+    <%= f.text_field :name  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :date -%>
+    <%= f.date_select :date  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :rating -%>
+    <%= f.number_field :rating  -%>
+
+  </div>
+  
+  <div class='field'>
+    <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
+      <ul id='page_parts'>
+        <% [:content].each_with_index do |part, part_index| %>
+          <li class='ui-state-default<%= ' ui-state-active' if part_index == 0 %>'>
+            <%= link_to t("#{part}", :scope => "activerecord.attributes.refinery/testimonials/testimonial", :default => part.to_s.titleize), "##{part}" %>
+          </li>
+        <% end %>
+      </ul>
+      <div id='page_part_editors'>
+        <% [:content].each do |part| %>
+          <div class='page_part' id='<%= part %>'>
+            <%= f.text_area part, :rows => 20, :class => 'wymeditor widest' -%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :hidden -%>
+    <%= f.check_box :hidden, :checked => @testimonial[:hidden]  -%>
+
+  </div>
+  
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.testimonials.admin.testimonials.testimonial'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @testimonial.title) %>
+<% end -%>
+<% content_for :javascripts do %>
+  <script>
+    $(document).ready(function(){
+      page_options.init(false, '', '');
+    });
+  </script>
+<% end %>
