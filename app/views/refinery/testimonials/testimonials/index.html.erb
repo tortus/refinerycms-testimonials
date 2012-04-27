@@ -2,6 +2,11 @@
 <div id="testimonials">
   <% @testimonials.each do |testimonial| -%>
     <h2 id="<%= testimonial.anchor %>"><%= testimonial.title %></h2>
+    <div class="rating">
+      <% testimonial.rating.times do -%>
+      <!-- insert star here -->
+      <% end -%>
+    </div>
     <%= raw testimonial.content %>
   <% end -%>
 </div>
