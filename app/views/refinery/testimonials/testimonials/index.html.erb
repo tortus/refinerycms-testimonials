@@ -1,11 +1,10 @@
 <% content_for :body_content_left do %>
-  <ul id="testimonials">
-    <% @testimonials.each do |testimonial| %>
-      <li id="<%= testimonial.anchor %>">
-        <%= link_to testimonial.title, refinery.testimonials_testimonial_path(testimonial) %>
-      </li>
-    <% end %>
-  </ul>
+<div id="testimonials">
+  <% @testimonials.each do |testimonial| -%>
+    <h2 id="<%= testimonial.anchor %>"><%= testimonial.title %></h2>
+    <%= raw testimonial.content %>
+  <% end -%>
+</div>
 <% end %>
 
 <%= render '/refinery/content_page' %>
