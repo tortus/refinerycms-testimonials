@@ -1,8 +1,10 @@
 module Refinery
   module Testimonials
     class Testimonial < Refinery::Core::BaseModel
+      extend FriendlyId
       self.table_name = 'refinery_testimonials'      
     
+      friendly_id :title, :use => [:slugged]
       acts_as_indexed :fields => [:title, :name, :content]
 
       validates :title, :presence => true, :uniqueness => true
@@ -17,6 +19,10 @@ module Refinery
       scope :active, where(:hidden => false)
       scope :by_position, :order => "position ASC"
       scope :by_date, :order => "date DESC, created_at DESC, updated_at DESC"
+      
+      def anchor
+        "testimonial_#{id}"
+      end
 
     end
   end
