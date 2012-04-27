@@ -33,7 +33,7 @@ module Refinery
       end
       
       def anchor
-        "testimonial-#{friendly_id}"
+        friendly_id
       end
 
     end
