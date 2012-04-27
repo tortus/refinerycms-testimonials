@@ -13,6 +13,10 @@ module Refinery
       }
 
       attr_accessible :title, :name, :date, :rating, :content, :hidden, :position
+      
+      scope :active, where(:hidden => false)
+      scope :by_position, :order => "position ASC"
+      scope :by_date, :order => "date DESC, created_at DESC, updated_at DESC"
 
     end
   end
