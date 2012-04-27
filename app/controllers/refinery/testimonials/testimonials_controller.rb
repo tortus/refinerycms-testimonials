@@ -22,7 +22,7 @@ module Refinery
     protected
 
       def find_all_testimonials
-        @testimonials = Testimonial.order('position ASC')
+        @testimonials = Testimonial.active.by_position
       end
 
       def find_page
