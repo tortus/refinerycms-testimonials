@@ -5,7 +5,7 @@ class CreateTestimonialsTestimonials < ActiveRecord::Migration
       t.string :title
       t.string :name
       t.date :date
-      t.integer :rating
+      t.integer :rating, :default => 5
       t.text :content
       t.boolean :hidden, :default => false, :null => false
       t.integer :position
