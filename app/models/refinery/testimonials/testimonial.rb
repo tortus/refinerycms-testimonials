@@ -20,6 +20,18 @@ module Refinery
       scope :by_position, :order => "position ASC"
       scope :by_date, :order => "date DESC, created_at DESC, updated_at DESC"
       
+      after_create :move_to_top
+      def move_to_top
+        self.class.transaction do
+          self.position = 1
+          self.class.where("position >= ?", self.position).each do |testimonial|
+            testimonial.position += 1
+            testimonial.save
+          end
+          self.save
+        end
+      end
+      
       def anchor
         "testimonial-#{id}"
       end
