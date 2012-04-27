@@ -7,7 +7,7 @@ class CreateTestimonialsTestimonials < ActiveRecord::Migration
       t.date :date
       t.integer :rating
       t.text :content
-      t.boolean :hidden
+      t.boolean :hidden, :default => false, :null => false
       t.integer :position
 
       t.timestamps
