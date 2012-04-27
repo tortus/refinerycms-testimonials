@@ -21,7 +21,7 @@ module Refinery
       scope :by_date, :order => "date DESC, created_at DESC, updated_at DESC"
       
       def anchor
-        "testimonial_#{id}"
+        "testimonial-#{id}"
       end
 
     end
