@@ -4,7 +4,7 @@
     <h2 id="<%= testimonial.anchor %>"><%= testimonial.title %></h2>
     <div class="rating">
       <% testimonial.rating.times do -%>
-      <!-- insert star here -->
+        <img src="<%= image_path 'star.png' %>" alt="" />
       <% end -%>
     </div>
     <%= raw testimonial.content %>
