@@ -16,15 +16,18 @@ module Refinery
 
       attr_accessible :title, :name, :date, :rating, :content, :hidden, :position
       
-      scope :active, where(:hidden => false)
-      scope :by_position, :order => "position ASC"
-      scope :by_date, :order => "date DESC, created_at DESC, updated_at DESC"
+      def self.active; where(:hidden => false); end
+      def self.by_position; order("position ASC"); end
+      def self.by_date
+        order("date DESC, created_at DESC, updated_at DESC")
+      end
       
       after_create :move_to_top
       def move_to_top
         self.class.transaction do
           self.position = 1
-          self.class.update_all(["position = position + 1"], ["id != ? AND position >= ?", self.id, self.position])
+          self.class.where("id != ? and position >= ?", self.id, self.position).
+            update_all("position = position + 1")
           self.save
         end
       end
