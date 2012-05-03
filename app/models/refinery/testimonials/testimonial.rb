@@ -28,7 +28,7 @@ module Refinery
           self.position = 1
           self.class.where("id != ? and position >= ?", self.id, self.position).
             update_all("position = position + 1")
-          self.save
+          self.save!
         end
       end
       
