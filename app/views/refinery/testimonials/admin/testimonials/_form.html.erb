@@ -5,27 +5,38 @@
 
   
   <div class='field'>
-    <%= f.label :title -%>
+    <span class='label_with_help'>
+      <%= f.label :title %>
+      <%= refinery_help_tag "The title of the testimonial. This will also be used as the footer blurb." %>
+    </span>
     <%= f.text_field :title, :class => 'larger widest'  -%>
 
   </div>
   
   <div class='field'>
-    <%= f.label :name -%>
+    <span class='label_with_help'>
+      <%= f.label :name, "Attribution" -%>
+      <%= refinery_help_tag "Name or source to attribute the testimonial to." %>
+    </span>
     <%= f.text_field :name  -%>
-
   </div>
   
+  <!--
   <div class='field'>
-    <%= f.label :date -%>
+    <span class='label_with_help'>
+      <%= f.label :date -%>
+      <%= refinery_help_tag "Optional date to associate with the testimonial. Not currently used." %>
+    </span>
     <%= f.date_select :date  -%>
-
   </div>
+  -->
   
   <div class='field'>
-    <%= f.label :rating -%>
+    <span class='label_with_help'>
+      <%= f.label :rating, "Star Rating" -%>
+      <%= refinery_help_tag "Number of stars to show above the testimonial." %>
+    </span>
     <%= f.number_field :rating  -%>
-
   </div>
   
   <div class='field'>
@@ -49,9 +60,11 @@
   </div>
   
   <div class='field'>
-    <%= f.label :hidden -%>
+    <span class='label_with_help'>
+      <%= f.label :hidden %>
+      <%= refinery_help_tag "Prevent the testimonial from appearing anywhere on your site." %>
+    </span>
     <%= f.check_box :hidden, :checked => @testimonial[:hidden]  -%>
-
   </div>
   
   <%= render '/refinery/admin/form_actions', :f => f,
