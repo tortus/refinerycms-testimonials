@@ -5,6 +5,7 @@ Gem::Specification.new do |s|
   s.name              = 'refinerycms-testimonials'
   s.version           = '1.0'
   s.description       = 'Ruby on Rails Testimonials extension for Refinery CMS'
+  s.author            = 'Tortus Technologies'
   s.date              = '2012-04-27'
   s.summary           = 'Testimonials extension for Refinery CMS'
   s.require_paths     = %w(lib)
