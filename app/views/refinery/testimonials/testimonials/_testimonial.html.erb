@@ -1,9 +1,33 @@
-<h4 class="testimonial-title" id="<%= testimonial.anchor %>"><%= testimonial.title %></h4>
-<div class="rating">
-  <% testimonial.rating.times do -%>
-    <%= image_tag 'star.png', :alt => '' -%>
+<div itemscope itemtype="http://schema.org/Review">
+
+  <% if testimonial.date.present? -%>
+    <meta itemprop="datePublished" content="<%= testimonial.date %>"/>
   <% end -%>
+
+  <div itemprop="itemReviewed" itemscope itemtype="http://schema.org/Thing">
+    <meta itemprop="name" content="Injury Lawyer"/>
+  </div>
+
+  <h4 itemprop="description" class="testimonial-title" id="<%= testimonial.anchor %>">
+    <%= testimonial.title %>
+  </h4>
+
+  <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="rating">
+    <meta itemprop="ratingValue" content="<%= testimonial.rating %>"/>
+    <meta itemprop="worstRating" content="1"/>
+    <meta itemprop="bestRating" content="5"/>
+    <% testimonial.rating.times do -%>
+      <img src="<%= image_path 'star.png' %>" alt="" />
+    <% end -%>
+  </div>
+
+  <div itemprop="reviewBody">
+    <%= raw testimonial.content %>
+  </div>
+
+  <div itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <p itemprop="name" class="testimonial-name">
+      <%= testimonial.name %>
+    </p>
+  </div>
 </div>
-<%= raw testimonial.content %>
-<p class="testimonial-name"><%= testimonial.name %></p>
-<br/>
