@@ -3,42 +3,7 @@
 <% end %>
 
 <% content_for :body_content_left do %>
-  <section>
-    <h1>Title</h1>
-    <p>
-      <%=raw @testimonial.title %>
-    </p>
-  </section>
-  <section>
-    <h1>Name</h1>
-    <p>
-      <%=raw @testimonial.name %>
-    </p>
-  </section>
-  <section>
-    <h1>Date</h1>
-    <p>
-      <%=raw @testimonial.date %>
-    </p>
-  </section>
-  <section>
-    <h1>Rating</h1>
-    <p>
-      <%=raw @testimonial.rating %>
-    </p>
-  </section>
-  <section>
-    <h1>Content</h1>
-    <p>
-      <%=raw @testimonial.content %>
-    </p>
-  </section>
-  <section>
-    <h1>Hidden</h1>
-    <p>
-      <%=raw @testimonial.hidden %>
-    </p>
-  </section>
+  <%= render 'testimonial', :testimonial => @testimonial %>
 <% end %>
 
 <% content_for :body_content_right do %>
