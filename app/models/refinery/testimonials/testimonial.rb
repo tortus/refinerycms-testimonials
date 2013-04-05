@@ -2,8 +2,8 @@ module Refinery
   module Testimonials
     class Testimonial < Refinery::Core::BaseModel
       extend FriendlyId
-      self.table_name = 'refinery_testimonials'      
-    
+      self.table_name = 'refinery_testimonials'
+
       friendly_id :title, :use => [:slugged]
       acts_as_indexed :fields => [:title, :name, :content]
 
@@ -29,7 +29,7 @@ module Refinery
           self.save!
         end
       end
-      
+
       def anchor
         friendly_id
       end
