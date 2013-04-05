@@ -1,16 +1,6 @@
 <% content_for :body_content_left do -%>
   <div id="testimonials">
-    <% @testimonials.each do |testimonial| -%>
-      <br/>
-      <h4 class="testimonial-title" id="<%= testimonial.anchor %>"><%= testimonial.title %></h4>
-      <div class="rating">
-        <% testimonial.rating.times do -%>
-          <img src="<%= image_path 'star.png' %>" alt="" />
-        <% end -%>
-      </div>
-      <%= raw testimonial.content %>
-      <p class="testimonial-name"><%= testimonial.name %></p>
-    <% end -%>
+    <%= render :partial => 'testimonial', :collection => @testimonials %>
   </div>
 <% end -%>
 

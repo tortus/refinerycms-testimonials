@@ -1,0 +1,9 @@
+<h4 class="testimonial-title" id="<%= testimonial.anchor %>"><%= testimonial.title %></h4>
+<div class="rating">
+  <% testimonial.rating.times do -%>
+    <%= image_tag 'star.png', :alt => '' -%>
+  <% end -%>
+</div>
+<%= raw testimonial.content %>
+<p class="testimonial-name"><%= testimonial.name %></p>
+<br/>
