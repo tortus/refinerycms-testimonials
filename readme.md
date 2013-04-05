@@ -12,10 +12,10 @@ Simple testimonials CMS with the following fields:
 
 ## Installation:
 
-    ```ruby
-    # Add to Gemfile:
-    gem 'refinerycms-testimonials', :git => 'https://github.com/tortustechnologies/refinerycms-testimonials.git'
-    ```
+```ruby
+# Add to Gemfile:
+gem 'refinerycms-testimonials', :git => 'https://github.com/tortustechnologies/refinerycms-testimonials.git'
+```
 
 ## Customization
 
