@@ -17,7 +17,7 @@
     <meta itemprop="worstRating" content="1"/>
     <meta itemprop="bestRating" content="5"/>
     <% testimonial.rating.times do -%>
-      <img src="<%= image_path 'star.png' %>" alt="" />
+      <%= image_tag 'star.png', :alt => '' -%>
     <% end -%>
   </div>
 
